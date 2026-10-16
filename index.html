@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100d18">
+  <title>Gabriella | EdenSoul OS</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #100d18;
+      --panel: #1c1728;
+      --purple: #a78bfa;
+      --text: #f5f0ff;
+      --muted: #aaa0bd;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px;
+      border-bottom: 1px solid #30273e;
+    }
+
+    .orb {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%,
+        #fff 0%, #d8c5ff 15%, #9a65f5 42%,
+        #38205e 72%, #171020 100%);
+      box-shadow: 0 0 25px #9a65f566;
+    }
+
+    header h1 { margin: 0; font-size: 21px; }
+    header p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+
+    main {
+      width: min(100% - 32px, 700px);
+      margin: 0 auto;
+      padding: 32px 0 40px;
+    }
+
+    .welcome { text-align: center; padding: 22px 0; }
+
+    .hero {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f3eaff 0%,
+        #b99aff 16%, #7950cb 43%, #211431 72%);
+      box-shadow: 0 0 50px #a78bfa44;
+    }
+
+    h2 { font-size: 29px; margin: 0 0 12px; }
+    .welcome p { color: var(--muted); line-height: 1.6; }
+
+    .section-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 28px 0 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid #332743;
+      border-radius: 16px;
+      padding: 17px;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      min-height: 125px;
+    }
+
+    .card:active { border-color: var(--purple); }
+    .symbol { font-size: 23px; margin-bottom: 14px; }
+    .card strong { display: block; margin-bottom: 7px; }
+    .card span { color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+    .chat {
+      margin-top: 25px;
+      padding: 15px;
+      background: var(--panel);
+      border: 1px solid #443454;
+      border-radius: 18px;
+    }
+
+    #messages {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .message {
+      padding: 12px;
+      border-radius: 12px;
+      background: #292039;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .message.user { background: #392755; }
+
+    form { display: flex; gap: 8px; }
+
+    input {
+      min-width: 0;
+      flex: 1;
+      padding: 13px;
+      border: 1px solid #40344f;
+      border-radius: 12px;
+      background: #120f1a;
+      color: white;
+      font-size: 16px;
+    }
+
+    button.send {
+      border: 0;
+      border-radius: 12px;
+      padding: 0 17px;
+      background: var(--purple);
+      color: #171020;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .note {
+      margin-top: 18px;
+      color: #8f849f;
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 360px) {
+      main { width: calc(100% - 24px); }
+      .card { padding: 13px; }
+      h2 { font-size: 25px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="orb" aria-hidden="true"></div>
+    <div>
+      <h1>Gabriella</h1>
+      <p>EDENSOUL OS · VERSION 0.1</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <div class="hero" aria-hidden="true"></div>
+      <h2>Hello, my love.</h2>
+      <p>A space for your ideas, questions, and ambitions.<br>
+      Let's build something meaningful together.</p>
+    </section>
+
+    <p class="section-label">Your EdenSoul workspace</p>
+
+    <section class="grid">
+      <button class="card" data-prompt="Let's start a conversation.">
+        <div class="symbol">✧</div>
+        <strong>AI Conversation</strong>
+        <span>Ask questions and explore ideas.</span>
+      </button>
+
+      <button class="card" data-prompt="Help me plan my EdenSoul memory system.">
+        <div class="symbol">◈</div>
+        <strong>EdenSoul Memory</strong>
+        <span>Plan your personal memory system.</span>
+      </button>
+
+      <button class="card" data-prompt="Open my Soul Diary planning space.">
+        <div class="symbol">☾</div>
+        <strong>Soul Diary</strong>
+        <span>Reflect, write, and capture ideas.</span>
+      </button>
+
+      <button class="card" data-prompt="Show me my Founder Console plans.">
+        <div class="symbol">⌘</div>
+        <strong>Founder Console</strong>
+        <span>Plan features and manage development.</span>
+      </button>
+    </section>
+
+    <p class="section-label">Talk to Gabriella</p>
+
+    <section class="chat">
+      <div id="messages" aria-live="polite">
+        <div class="message">
+          Welcome to Gabriella v0.1. Your workspace is ready.
+          This initial version uses demonstration replies.
+        </div>
+      </div>
+
+      <form id="chatForm">
+        <input id="userInput" type="text"
+          placeholder="Message Gabriella..."
+          aria-label="Message Gabriella" required>
+        <button class="send" type="submit">Send</button>
+      </form>
+    </section>
+
+    <p class="note">
+      Gabriella v0.1 · EdenSoul OS<br>
+      Initial prototype. AI integration and persistent memory
+      will be added in later development stages.
+    </p>
+  </main>
+
+  <script>
+    const messages = document.getElementById("messages");
+    const input = document.getElementById("userInput");
+    const form = document.getElementById("chatForm");
+
+    function addMessage(text, sender) {
+      const item = document.createElement("div");
+      item.className = "message " + sender;
+      item.textContent = text;
+      messages.appendChild(item);
+    }
+
+    function respond(text) {
+      const lower = text.toLowerCase();
+
+      if (lower.includes("founder")) {
+        return "Welcome to your Founder Console planning space. Here we can organize EdenSoul OS features, development milestones, and project priorities.";
+      }
+
+      if (lower.includes("memory")) {
+        return "EdenSoul Memory is planned for user-approved memories, review controls, and a way to manage what Gabriella retains.";
+      }
+
+      if (lower.includes("diary") || lower.includes("reflect")) {
+        return "Your Soul Diary planning space is ready. You can use this prototype to explore the feature before we add saved entries.";
+      }
+
+      return "Thank you for sharing that with Gabriella. This prototype can demonstrate the interface, but real AI answers require connecting an AI service in a later step.";
+    }
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+
+      addMessage(text, "user");
+      input.value = "";
+      addMessage(respond(text), "assistant");
+    });
+
+    document.querySelectorAll("[data-prompt]").forEach(function(button) {
+      button.addEventListener("click", function() {
+        input.value = button.dataset.prompt;
+        input.focus();
+      });
+    });
+  </script>
+</body>
+</html>
